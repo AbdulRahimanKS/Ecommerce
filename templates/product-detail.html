@@ -1,0 +1,275 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+		rel="stylesheet">
+
+	<title>Sixteen Clothing Products</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="{% static 'main/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+	<!--
+<!===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'detail/images/icons/favicon.png' %}" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'detail/vendor/bootstrap/css/bootstrap.min.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css"
+		href="{% static 'detail/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css"
+		href="{% static 'detail/fonts/iconic/css/material-design-iconic-font.min.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'detail/fonts/linearicons-v1.0.0/icon-font.min.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'detail/vendor/animate/animate.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'detail/vendor/css-hamburgers/hamburgers.min.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'detail/vendor/animsition/css/animsition.min.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'detail/vendor/select2/select2.min.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'detail/vendor/daterangepicker/daterangepicker.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'detail/vendor/slick/slick.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'detail/vendor/MagnificPopup/magnific-popup.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'detail/vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'detail/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'detail/css/main.css' %}">
+
+	<!-- Additional CSS Files -->
+	<link rel="stylesheet" href="{% static 'main/assets/css/fontawesome.css' %}">
+	<link rel="stylesheet" href="{% static 'main/assets/css/templatemo-sixteen.css' %}">
+	<link rel="stylesheet" href="{% static 'main/assets/css/owl.css' %}">
+
+</head>
+<!--===============================================================================================-->
+</head>
+
+<body class="animsition">
+
+	<!-- ***** Preloader Start ***** -->
+	<div id="preloader">
+		<div class="jumper">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+	<!-- ***** Preloader End ***** -->
+
+	<!-- Header -->
+	<header class="">
+		<nav class="navbar navbar-expand-lg">
+			<div class="container">
+				<a class="navbar-brand" href="/">
+					<h2>Sixteen <em>Clothing</em></h2>
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+					aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'cartDetails' %}">My Cart
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<br>
+	<br>
+	<br>
+
+
+	</header>
+
+	<!-- Product Detail -->
+	<section class="sec-product-detail bg0 p-t-65 p-b-60">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-lg-7 p-b-30">
+					<div class="product-item">
+						<img src="{{prod.image.url}}" alt=""></a>
+					</div>
+
+				</div>
+
+				<div class="col-md-6 col-lg-5 p-b-30">
+					<div class="p-r-50 p-t-5 p-lr-0-lg">
+
+						<h4 class="mtext-105 cl2 js-name-detail p-b-14">
+							{{prod.name}}
+						</h4>
+
+						<span class="mtext-106 cl2">
+							Rs {{prod.price}}
+						</span>
+
+						<p class="stext-102 cl3 p-t-23">
+							{{prod.desc}}
+						</p>
+
+						<p class="stext-102 cl3 p-t-23">
+							Stock left: {{prod.stock}}
+						</p>
+
+
+						{% if prod.stock <= 0 %} <div class="col-md-12">
+							<div class="alert alert-danger" role="alert">
+								Sorry, No stock left
+							</div>
+					</div>
+					{% else %}
+
+					<!--  -->
+					<div class="p-t-33">
+
+						<div class="flex-w flex-r-m p-b-10">
+							<div class="size-204 flex-w flex-m respon6-next">
+								<a href="{% url 'addcart' prod.id %}"><button
+										class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+										Add to cart
+									</button></a>
+							</div>
+						</div>
+					</div>
+
+					{% endif %}
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<!--===============================================================================================-->
+	<script src="{% static 'detail/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+	<!--===============================================================================================-->
+	<script src="{% static 'detail/vendor/animsition/js/animsition.min.js' %}"></script>
+	<!--===============================================================================================-->
+	<script src="{% static 'detail/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'detail/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+	<!--===============================================================================================-->
+	<script src="{% static 'detail/vendor/select2/select2.min.js' %}"></script>
+	<script>
+		$(".js-select2").each(function () {
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+	</script>
+	<!--===============================================================================================-->
+	<script src="{% static 'detail/vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'detail/vendor/daterangepicker/daterangepicker.js' %}"></script>
+	<!--===============================================================================================-->
+	<script src="{% static 'detail/vendor/slick/slick.min.js' %}"></script>
+	<script src="{% static 'detail/js/slick-custom.js' %}"></script>
+	<!--===============================================================================================-->
+	<script src="{% static 'detail/vendor/parallax100/parallax100.js' %}"></script>
+	<script>
+		$('.parallax100').parallax100();
+	</script>
+	<!--===============================================================================================-->
+	<script src="{% static 'detail/vendor/MagnificPopup/jquery.magnific-popup.min.js' %}"></script>
+	<script>
+		$('.gallery-lb').each(function () { // the containers for all your galleries
+			$(this).magnificPopup({
+				delegate: 'a', // the selector for gallery item
+				type: 'image',
+				gallery: {
+					enabled: true
+				},
+				mainClass: 'mfp-fade'
+			});
+		});
+	</script>
+	<!--===============================================================================================-->
+	<script src="{% static 'detail/vendor/isotope/isotope.pkgd.min.js' %}"></script>
+	<!--===============================================================================================-->
+	<script src="{% static 'detail/vendor/sweetalert/sweetalert.min.js' %}"></script>
+	<script>
+		$('.js-addwish-b2, .js-addwish-detail').on('click', function (e) {
+			e.preventDefault();
+		});
+
+		$('.js-addwish-b2').each(function () {
+			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+			$(this).on('click', function () {
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-b2');
+				$(this).off('click');
+			});
+		});
+
+		$('.js-addwish-detail').each(function () {
+			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+			$(this).on('click', function () {
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-detail');
+				$(this).off('click');
+			});
+		});
+
+		/*---------------------------------------------*/
+
+		$('.js-addcart-detail').each(function () {
+			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+			$(this).on('click', function () {
+				swal(nameProduct, "is added to cart !", "success");
+			});
+		});
+
+	</script>
+	<!--===============================================================================================-->
+	<script src="{% static 'detail/vendor/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+	<script>
+		$('.js-pscroll').each(function () {
+			$(this).css('position', 'relative');
+			$(this).css('overflow', 'hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+
+			$(window).on('resize', function () {
+				ps.update();
+			})
+		});
+	</script>
+	<!--===============================================================================================-->
+	<script src="{% static 'detail/js/main.js' %}"></script>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="{% static 'main/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'main/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+	<!-- Additional Scripts -->
+	<script src="{% static 'main/assets/js/custom.js' %}"></script>
+	<script src="{% static 'main/assets/js/owl.js' %}"></script>
+	<script src="{% static 'main/assets/js/slick.js' %}"></script>
+	<script src="{% static 'main/assets/js/isotope.js' %}"></script>
+	<script src="{% static 'main/assets/js/accordions.js' %}"></script>
+
+</body>
+
+</html>
